@@ -723,13 +723,13 @@
   .serv-title-wrap{padding:10px 0 0;}
   .serv-title-wrap .sec-title{margin-bottom:40px;}
   .servicos{background:var(--ink);padding:0 0 70px;}
-  .serv-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;transform:translateY(-50px);}
+  .serv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;transform:translateY(-50px);align-items:start;}
+  .serv-item{display:flex;flex-direction:column;gap:22px;}
   .card{background:var(--wine);border:2px solid var(--gold);border-radius:10px;padding:26px 18px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:22px;box-shadow:0 14px 30px rgba(0,0,0,.35);}
   .icon-box{width:120px;height:120px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;}
   .icon-box i{font-size:54px;color:#fff;}
   .card h4{font-family:var(--sans);font-weight:700;color:#fff;font-size:19px;line-height:1.25;text-transform:uppercase;letter-spacing:.5px;}
-  .serv-desc{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:-30px;}
-  .serv-desc p{font-family:var(--sans);font-size:13.5px;line-height:1.55;color:#d8d6d4;text-align:justify;}
+  .serv-item p{font-family:var(--sans);font-size:13.5px;line-height:1.55;color:#d8d6d4;text-align:justify;margin:0;}
 
   /* ============ CONTATOS ============ */
   .contato-title{padding:70px 0 36px;}
@@ -809,8 +809,7 @@
     .nav-backdrop.open{opacity:1;visibility:visible;}
     .sobre-grid{grid-template-columns:1fr;gap:36px;}
     .sobre-img{height:380px;}
-    .serv-cards{grid-template-columns:repeat(2,1fr);}
-    .serv-desc{grid-template-columns:repeat(2,1fr);}
+    .serv-grid{grid-template-columns:repeat(2,1fr);}
     .contato-inner{grid-template-columns:1fr;}
     .form-card{max-width:460px;margin:0 auto;width:100%;}
     .phones{flex-direction:column;align-items:center;gap:14px;position:static;margin:30px 0 0;}
@@ -818,8 +817,8 @@
     .foot nav{flex-wrap:wrap;}
   }
   @media(max-width:560px){
-    .serv-cards{grid-template-columns:1fr;}
-    .serv-desc{grid-template-columns:1fr;}
+    .serv-grid{grid-template-columns:1fr;transform:translateY(-30px);}
+    .serv-item{max-width:420px;margin:0 auto;}
     .nav{flex-wrap:wrap;gap:14px;justify-content:center;}
   }
 </style>
@@ -886,29 +885,35 @@
 </div>
 <section class="servicos">
   <div class="wrap">
-    <div class="serv-cards">
-      <div class="card">
-        <div class="icon-box"><i class="fa-solid fa-spray-can-sparkles"></i></div>
-        <h4>Hidrojateamento<br>de Fachada</h4>
+    <div class="serv-grid">
+      <div class="serv-item">
+        <div class="card">
+          <div class="icon-box"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+          <h4>Hidrojateamento<br>de Fachada</h4>
+        </div>
+        <p>O primeiro passo para uma revitalização de sucesso. O hidrojateamento consiste na limpeza profunda das superfícies utilizando jatos de água em alta pressão controlada. Esse processo remove de forma rápida e eficiente crostas de poluição, fungos, musgos e tintas descascadas, devolvendo o aspecto original do revestimento e preparando a fachada perfeitamente para receber novos tratamentos.</p>
       </div>
-      <div class="card">
-        <div class="icon-box"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-        <h4>Manutenção<br>de Fachada</h4>
+      <div class="serv-item">
+        <div class="card">
+          <div class="icon-box"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+          <h4>Manutenção<br>de Fachada</h4>
+        </div>
+        <p>Uma fachada segura vai muito além da pintura. Nosso serviço de manutenção engloba soluções corretivas e preventivas essenciais para a integridade do prédio. Realizamos o mapeamento e tratamento de trincas estruturais, teste de percussão, recuperação e reposição de pastilhas e cerâmicas soltas. Agimos na raiz do problema para evitar infiltrações crônicas e o risco grave de descolamento de materiais.</p>
       </div>
-      <div class="card">
-        <div class="icon-box"><i class="fa-solid fa-helmet-safety"></i></div>
-        <h4>Pintura<br>Industrial</h4>
+      <div class="serv-item">
+        <div class="card">
+          <div class="icon-box"><i class="fa-solid fa-helmet-safety"></i></div>
+          <h4>Pintura<br>Industrial</h4>
+        </div>
+        <p>Ambientes de produção e armazenagem exigem durabilidade extrema. Nosso serviço de pintura industrial é focado no revestimento e proteção de paredes e pisos em galpões, centros de distribuição e fábricas. Para as paredes, utilizamos tintas duráveis que facilitam a higienização e melhoram a iluminação do galpão. Entregamos um ambiente de trabalho mais limpo, seguro e com as áreas perfeitamente demarcadas.</p>
       </div>
-      <div class="card">
-        <div class="icon-box"><i class="fa-solid fa-paint-roller"></i></div>
-        <h4>Pintura<br>Interna</h4>
+      <div class="serv-item">
+        <div class="card">
+          <div class="icon-box"><i class="fa-solid fa-paint-roller"></i></div>
+          <h4>Pintura<br>Interna</h4>
+        </div>
+        <p>Cuidamos também do interior do seu edifício. Realizamos a pintura de áreas comuns, halls de entrada, corredores, escadarias e garagens com acabamento impecável. Nosso foco na pintura interna é a agilidade, a organização e a limpeza, utilizando produtos de secagem rápida e baixo odor para minimizar qualquer transtorno à rotina dos moradores e colaboradores.</p>
       </div>
-    </div>
-    <div class="serv-desc">
-      <p>O primeiro passo para uma revitalização de sucesso. O hidrojateamento consiste na limpeza profunda das superfícies utilizando jatos de água em alta pressão controlada. Esse processo remove de forma rápida e eficiente crostas de poluição, fungos, musgos e tintas descascadas, devolvendo o aspecto original do revestimento e preparando a fachada perfeitamente para receber novos tratamentos.</p>
-      <p>Uma fachada segura vai muito além da pintura. Nosso serviço de manutenção engloba soluções corretivas e preventivas essenciais para a integridade do prédio. Realizamos o mapeamento e tratamento de trincas estruturais, teste de percussão, recuperação e reposição de pastilhas e cerâmicas soltas. Agimos na raiz do problema para evitar infiltrações crônicas e o risco grave de descolamento de materiais.</p>
-      <p>Ambientes de produção e armazenagem exigem durabilidade extrema. Nosso serviço de pintura industrial é focado no revestimento e proteção de paredes e pisos em galpões, centros de distribuição e fábricas. Para as paredes, utilizamos tintas duráveis que facilitam a higienização e melhoram a iluminação do galpão. Entregamos um ambiente de trabalho mais limpo, seguro e com as áreas perfeitamente demarcadas.</p>
-      <p>Cuidamos também do interior do seu edifício. Realizamos a pintura de áreas comuns, halls de entrada, corredores, escadarias e garagens com acabamento impecável. Nosso foco na pintura interna é a agilidade, a organização e a limpeza, utilizando produtos de secagem rápida e baixo odor para minimizar qualquer transtorno à rotina dos moradores e colaboradores.</p>
     </div>
   </div>
 </section>
@@ -1063,6 +1068,23 @@
     bd.addEventListener('click',function(){toggle(false);});
     menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){toggle(false);});});
   })();
+  /* Máscara de telefone brasileiro: (11) 99999-9999 */
+  (function(){
+    var tel = document.getElementById('tel');
+    if(!tel) return;
+    tel.setAttribute('inputmode','tel');
+    tel.setAttribute('maxlength','16');
+    tel.placeholder = '(11) 99999-9999';
+    function fmt(v){
+      v = v.replace(/\D/g,'').slice(0,11);
+      if(v.length<=2) return v.length?'('+v:'';
+      if(v.length<=6) return '('+v.slice(0,2)+') '+v.slice(2);
+      if(v.length<=10) return '('+v.slice(0,2)+') '+v.slice(2,6)+'-'+v.slice(6);
+      return '('+v.slice(0,2)+') '+v.slice(2,7)+'-'+v.slice(7);
+    }
+    tel.addEventListener('input',function(){ this.value = fmt(this.value); });
+  })();
+
   document.getElementById('orcForm').addEventListener('submit', function(e){
     e.preventDefault();
     var WHATSAPP = '5511949694607'; // <-- troque aqui quando quiser
@@ -1070,6 +1092,27 @@
     function v(id){ var el = f.querySelector('#'+id); return el ? el.value.trim() : ''; }
     var nome = v('nome'), email = v('email'), tel = v('tel');
     var serv = v('serv'), local = v('local'), msg = v('msg');
+
+    /* Validação do telefone: precisa de 10 (fixo) ou 11 (celular) dígitos */
+    var telDigits = tel.replace(/\D/g,'');
+    var telEl = f.querySelector('#tel');
+    if(telDigits.length < 10 || telDigits.length > 11){
+      telEl.style.borderColor = '#c0392b';
+      telEl.focus();
+      var warn = document.getElementById('telWarn');
+      if(!warn){
+        warn = document.createElement('p');
+        warn.id = 'telWarn';
+        warn.style.cssText = 'color:#c0392b;font-family:var(--sans);font-size:12.5px;margin-top:5px;';
+        telEl.parentNode.appendChild(warn);
+      }
+      warn.textContent = 'Informe um telefone válido com DDD, ex: (11) 99999-9999.';
+      return;
+    }
+    telEl.style.borderColor = '';
+    var oldWarn = document.getElementById('telWarn');
+    if(oldWarn) oldWarn.remove();
+
     var linhas = ['*Solicitação de orçamento — site RH2*',''];
     if(nome)  linhas.push('*Nome:* ' + nome);
     if(email) linhas.push('*E-mail:* ' + email);
@@ -1079,11 +1122,20 @@
     if(msg)   linhas.push('','*Detalhes:* ' + msg);
     var texto = encodeURIComponent(linhas.join('\n'));
     var url = 'https://wa.me/' + WHATSAPP + '?text=' + texto;
+
     var btn = f.querySelector('.submit');
     var orig = btn.textContent;
     btn.textContent = 'Abrindo WhatsApp...';
     btn.style.background = '#1f8a4c';
-    window.open(url, '_blank');
+
+    /* Abertura confiável: tenta nova aba; se bloqueada, navega na mesma aba */
+    var win = window.open(url, '_blank');
+    if(!win || win.closed || typeof win.closed === 'undefined'){
+      var a = document.createElement('a');
+      a.href = url; a.target = '_blank'; a.rel = 'noopener';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function(){ window.location.href = url; }, 400);
+    }
     setTimeout(function(){ btn.textContent = orig; btn.style.background = ''; }, 2600);
   });
 </script>
