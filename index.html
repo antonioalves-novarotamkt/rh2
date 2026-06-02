@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RH Engenharia e Construções | Excelência em Manutenção Predial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2C5FA3;
+            --primary-gold: #D4A574;
+            --dark-wine: #6B3E4F;
+            --light-gray: #F5F5F5;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #fff;
+        }
+
+        /* Header e Navegação */
+        header {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary-gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .btn-orcamento {
+            background: var(--dark-wine);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-orcamento:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 95, 163, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1e4578 100%);
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            color: white;
+            padding: 8rem 2rem;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            right: -10%;
+            top: 50%;
+            width: 600px;
+            height: 400px;
+            background: rgba(212, 165, 116, 0.1);
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            color: var(--primary-gold);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary-gold);
+            color: var(--text-dark);
+        }
+
+        .btn-primary:hover {
+            background: #e5b894;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-gold);
+            color: var(--text-dark);
+        }
+
+        /* Seções */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary-gold);
+            border-radius: 2px;
+        }
+
+        /* Sobre Nós */
+        .sobre {
+            background: var(--light-gray);
+        }
+
+        .sobre-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .sobre-texto h3 {
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .sobre-texto p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .sobre-img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: slideInRight 1s ease;
+        }
+
+        /* Serviços */
+        .servicos {
+            background: white;
+        }
+
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .servico-card {
+            background: white;
+            border: 2px solid var(--dark-wine);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .servico-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .servico-card:hover::before {
+            left: 100%;
+        }
+
+        .servico-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(44, 95, 163, 0.15);
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.05), transparent);
+        }
+
+        .servico-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-gold), #e5b894);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .servico-card h3 {
+            color: var(--dark-wine);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .servico-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Contato */
+        .contato {
+            background: linear-gradient(135deg, var(--primary-blue), #1e4578);
+            color: white;
+        }
+
+        .contato h2 {
+            color: white;
+        }
+
+        .contato h2::after {
+            background: var(--primary-gold);
+        }
+
+        .contato-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contato-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            color: var(--text-dark);
+        }
+
+        .contato-form h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(44, 95, 163, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--dark-wine);
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .contato-info {
+            padding: 2rem;
+        }
+
+        .info-item {
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            min-width: 30px;
+        }
+
+        .info-text h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-text p {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+        }
+
+        .info-text a {
+            color: var(--primary-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero {
+                padding: 4rem 1rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .sobre-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contato-content {
+                grid-template-columns: 1fr;
+            }
+
+            .servicos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Menu Mobile */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        @media (max-width: 640px) {
+            nav ul {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 2rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                display: none;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Status mensagem */
+        .form-message {
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#inicio" class="logo">RH<span>+</span></a>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul id="menu">
+                <li><a href="#inicio">INÍCIO</a></li>
+                <li><a href="#sobre">SOBRE NÓS</a></li>
+                <li><a href="#servicos">SERVIÇOS</a></li>
+                <li><a href="#contato">CONTATO</a></li>
+                <li><a href="#contato" class="btn-orcamento">SOLICITAR ORÇAMENTO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>VALORIZE E PROTEJA</h1>
+            <h2>SEU PATRIMÔNIO</h2>
+            <p>Excelência em Manutenção Predial</p>
+            <div class="hero-buttons">
+                <a href="#servicos" class="btn btn-primary">Nossos Serviços</a>
+                <a href="#contato" class="btn btn-secondary">Solicitar Orçamento</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="sobre" class="sobre">
+        <h2>SOBRE NÓS</h2>
+        <div class="sobre-content">
+            <div class="sobre-texto">
+                <h3>PROTEGENDO O SEU PATRIMÔNIO</h3>
+                <p>A <strong>RH Engenharia e Construções</strong> é uma empresa especializada em manutenção, restauração e conservação predial. Nascemos com a missão de oferecer soluções definitivas e seguras para edifícios comerciais que buscam não apenas estética, mas a integridade estrutural de suas fachadas.</p>
+                
+                <p>Com um corpo técnico altamente qualificado, atuamos com rigoroso padrão de qualidade e respeito total às normas de segurança do trabalho (NR). Nosso compromisso é entregar obras limpas dentro do prazo e com durabilidade comprovada.</p>
+                
+                <p>Na RH, entendemos que cuidar do seu edifício é cuidar da segurança das pessoas e da valorização do seu investimento.</p>
+            </div>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23E8F1F8' width='400' height='400'/%3E%3Crect x='50' y='80' width='300' height='200' fill='%232C5FA3' opacity='0.1' rx='10'/%3E%3Crect x='80' y='100' width='50' height='60' fill='%23D4A574'/%3E%3Crect x='160' y='100' width='50' height='60' fill='%23D4A574'/%3E%3Crect x='240' y='100' width='50' height='60' fill='%23D4A574'/%3E%3Ccircle cx='105' cy='200' r='8' fill='%232C5FA3'/%3E%3Ccircle cx='185' cy='200' r='8' fill='%232C5FA3'/%3E%3Ccircle cx='265' cy='200' r='8' fill='%232C5FA3'/%3E%3Crect x='100' y='280' width='200' height='40' fill='%236B3E4F'/%3E%3Ctext x='200' y='310' text-anchor='middle' font-size='14' fill='white' font-weight='bold'%3EExcelência em Qualidade%3C/text%3E%3C/svg%3E" alt="RH Engenharia" class="sobre-img">
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="servicos">
+        <h2>NOSSOS SERVIÇOS</h2>
+        <div class="servicos-grid">
+            <div class="servico-card">
+                <div class="servico-icon">💧</div>
+                <h3>HIDROJATEAMENTO DE FACHADA</h3>
+                <p>Limpeza profunda e eficiente das superfícies com alta pressão, removendo sujidades e restaurando a beleza da fachada.</p>
+            </div>
+
+            <div class="servico-card">
+                <div class="servico-icon">🔧</div>
+                <h3>MANUTENÇÃO DE FACHADA</h3>
+                <p>Preservação e restauração de estruturas externas. Prevenção de problemas futuros com soluções corretas e duráveis.</p>
+            </div>
+
+            <div class="servico-card">
+                <div class="servico-icon">🎨</div>
+                <h3>PINTURA INDUSTRIAL</h3>
+                <p>Proteção especializada para ambientes industriais. Tinta de alta performance com acabamento profissional e durável.</p>
+            </div>
+
+            <div class="servico-card">
+                <div class="servico-icon">🏠</div>
+                <h3>PINTURA INTERNA</h3>
+                <p>Transformação de ambientes internos com pintura de qualidade. Profissionalismo na aplicação e atendimento ao detalhe.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contato">
+        <h2>CONTATOS</h2>
+        <div class="contato-content">
+            <form class="contato-form" id="contatoForm">
+                <h3>Envie sua solicitação</h3>
+                <div class="form-message" id="formMessage"></div>
+                
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone">
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" required></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Enviar</button>
+            </form>
+
+            <div class="contato-info">
+                <h3 style="margin-bottom: 2rem; font-size: 1.5rem;">Fale conosco</h3>
+                <p style="margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.8;">Nosso comercial está à disposição para entender suas necessidades e apresentar a melhor solução técnica com o melhor custo-benefício.</p>
+
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div class="info-text">
+                        <h4>Telefone</h4>
+                        <p><a href="tel:1197226768">(11) 97226-7680</a></p>
+                        <p><a href="tel:1198254507">(11) 98254-5507</a></p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">📧</div>
+                    <div class="info-text">
+                        <h4>Email</h4>
+                        <p><a href="mailto:contato@rhengenharia.com.br">contato@rhengenharia.com.br</a></p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <h4>Localização</h4>
+                        <p>São Paulo - SP</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 RH Engenharia e Construções. Todos os direitos reservados. | Desenvolvido com ❤️</p>
+    </footer>
+
+    <script>
+        // Menu Mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+            });
+        });
+
+        // Formulário de contato
+        const form = document.getElementById('contatoForm');
+        const formMessage = document.getElementById('formMessage');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            // Aqui você pode adicionar integração com um serviço de email
+            // Por enquanto, vamos simular
+            
+            console.log({
+                nome: nome,
+                email: email,
+                telefone: telefone,
+                mensagem: mensagem
+            });
+
+            // Mostrar mensagem de sucesso
+            formMessage.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
+            formMessage.classList.add('success');
+            formMessage.classList.remove('error');
+
+            // Limpar formulário
+            form.reset();
+
+            // Esconder mensagem após 5 segundos
+            setTimeout(() => {
+                formMessage.classList.remove('success');
+            }, 5000);
+        });
+
+        // Animação ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.servico-card').forEach(card => {
+            card.style.opacity = '0';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
